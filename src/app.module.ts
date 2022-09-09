@@ -6,6 +6,7 @@ import { TypeOrmModule } from '@nestjs/typeorm'
 import { AppController } from './app.controller'
 import { AppService } from './app.service'
 import { EducationModule } from './education/education.module'
+import { ExperienceModule } from './experience/experience.module'
 import { InformationModule } from './information/information.module'
 import { LanguageModule } from './language/language.module'
 import { LevelModule } from './level/level.module'
@@ -29,11 +30,12 @@ import { SkilModule } from './skil/skil.module'
       driver: ApolloDriver,
       autoSchemaFile: 'schema.gql'
     }),
+    EducationModule,
+    ExperienceModule,
+    InformationModule,
     LanguageModule,
     LevelModule,
-    InformationModule,
-    SkilModule,
-    EducationModule
+    SkilModule
   ],
   controllers: [AppController],
   providers: [AppService]
