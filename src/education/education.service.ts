@@ -11,11 +11,11 @@ export class EducationService {
   ) {}
 
   async findAll(): Promise<Education[]> {
-    return this.educationRepository.find({ loadRelationIds: true })
+    return this.educationRepository.find()
   }
 
   async findById(id: string): Promise<Education> {
-    return this.educationRepository.findOne(id, { loadRelationIds: true })
+    return this.educationRepository.findOne(id)
   }
 
   async findBySlug(slug: string): Promise<Education> {
