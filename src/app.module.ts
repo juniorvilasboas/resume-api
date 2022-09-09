@@ -10,6 +10,7 @@ import { ExperienceModule } from './experience/experience.module'
 import { InformationModule } from './information/information.module'
 import { LanguageModule } from './language/language.module'
 import { LevelModule } from './level/level.module'
+import { PortifolioModule } from './portifolio/portifolio.module'
 import { SkilModule } from './skil/skil.module'
 
 @Module({
@@ -35,6 +36,7 @@ import { SkilModule } from './skil/skil.module'
     InformationModule,
     LanguageModule,
     LevelModule,
+    PortifolioModule,
     SkilModule
   ],
   controllers: [AppController],

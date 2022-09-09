@@ -55,6 +55,17 @@ type Level {
   description: String
 }
 
+type Portifolio {
+  id: String
+  layout: String
+  name: String
+  site: String
+  category: String
+  subject: String
+  description: String
+  skil: String
+}
+
 type Skil {
   id: String
   name: String
@@ -75,6 +86,8 @@ type Query {
   getLanguageById(id: String!): Language!
   getAllLevels: [Level!]!
   getLevelById(id: String!): Level!
+  getAllPortifolios: [Portifolio!]!
+  getPortifolioById(id: String!): Portifolio!
   getAllSkils: [Skil!]!
   getSkilById(id: String!): Skil!
 }
@@ -95,6 +108,9 @@ type Mutation {
   createLevel(input: LevelCreateInput!): Level!
   updateLevel(input: LevelUpdateInput!): Level!
   deleteLevel(id: String!): Boolean!
+  createPortifolio(input: PortifolioCreateInput!): Portifolio!
+  updatePortifolio(input: PortifolioUpdateInput!): Portifolio!
+  deletePortifolio(id: String!): Boolean!
   createSkil(input: SkilCreateInput!): Skil!
   updateSkil(input: SkilUpdateInput!): Skil!
   deleteSkil(id: String!): Boolean!
@@ -190,6 +206,27 @@ input LevelUpdateInput {
   value: String!
   label: String
   description: String
+}
+
+input PortifolioCreateInput {
+  layout: String
+  name: String
+  site: String
+  category: String
+  subject: String
+  description: String
+  skil: String
+}
+
+input PortifolioUpdateInput {
+  id: String!
+  layout: String
+  name: String
+  site: String
+  category: String
+  subject: String
+  description: String
+  skil: String
 }
 
 input SkilCreateInput {
