@@ -17,6 +17,18 @@ A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date
 """
 scalar DateTime
 
+type Experience {
+  id: String
+  role: String
+  type: String
+  company: String
+  city: String
+  country: String
+  description: String
+  begin: DateTime
+  end: DateTime
+}
+
 type Information {
   id: String
   phone: String
@@ -53,34 +65,99 @@ type Skil {
 }
 
 type Query {
+  getAllEducations: [Education!]!
+  getEducationById(id: String!): Education!
+  getAllExperiences: [Experience!]!
+  getExperienceById(id: String!): Experience!
+  getAllInformations: [Information!]!
+  getInformationById(id: String!): Information!
   getAllLanguages: [Language!]!
   getLanguageById(id: String!): Language!
   getAllLevels: [Level!]!
   getLevelById(id: String!): Level!
-  getAllInformations: [Information!]!
-  getInformationById(id: String!): Information!
   getAllSkils: [Skil!]!
   getSkilById(id: String!): Skil!
-  getAllEducations: [Education!]!
-  getEducationById(id: String!): Education!
 }
 
 type Mutation {
+  createEducation(input: EducationCreateInput!): Education!
+  updateEducation(input: EducationUpdateInput!): Education!
+  deleteEducation(id: String!): Boolean!
+  createExperience(input: ExperienceCreateInput!): Experience!
+  updateExperience(input: ExperienceUpdateInput!): Experience!
+  deleteExperience(id: String!): Boolean!
+  createInformation(input: InformationCreateInput!): Information!
+  updateInformation(input: InformationUpdateInput!): Information!
+  deleteInformation(id: String!): Boolean!
   createLanguage(input: LanguageCreateInput!): Language!
   updateLanguage(input: LanguageUpdateInput!): Language!
   deleteLanguage(id: String!): Boolean!
   createLevel(input: LevelCreateInput!): Level!
   updateLevel(input: LevelUpdateInput!): Level!
   deleteLevel(id: String!): Boolean!
-  createInformation(input: InformationCreateInput!): Information!
-  updateInformation(input: InformationUpdateInput!): Information!
-  deleteInformation(id: String!): Boolean!
   createSkil(input: SkilCreateInput!): Skil!
   updateSkil(input: SkilUpdateInput!): Skil!
   deleteSkil(id: String!): Boolean!
-  createEducation(input: EducationCreateInput!): Education!
-  updateEducation(input: EducationUpdateInput!): Education!
-  deleteEducation(id: String!): Boolean!
+}
+
+input EducationCreateInput {
+  degree: String
+  subject: String
+  institution: String
+  site: String
+  begin: DateTime
+  end: DateTime
+}
+
+input EducationUpdateInput {
+  id: String!
+  degree: String
+  subject: String
+  institution: String
+  site: String
+  begin: DateTime
+  end: DateTime
+}
+
+input ExperienceCreateInput {
+  id: String
+  role: String
+  type: String
+  company: String
+  city: String
+  country: String
+  description: String
+  begin: DateTime
+  end: DateTime
+}
+
+input ExperienceUpdateInput {
+  id: String!
+  role: String
+  type: String
+  company: String
+  city: String
+  country: String
+  description: String
+  begin: DateTime
+  end: DateTime
+}
+
+input InformationCreateInput {
+  phone: String
+  address: String!
+  city: String
+  country: String
+  cep: String
+}
+
+input InformationUpdateInput {
+  id: String!
+  phone: String
+  address: String!
+  city: String
+  country: String
+  cep: String
 }
 
 input LanguageCreateInput {
@@ -115,23 +192,6 @@ input LevelUpdateInput {
   description: String
 }
 
-input InformationCreateInput {
-  phone: String
-  address: String!
-  city: String
-  country: String
-  cep: String
-}
-
-input InformationUpdateInput {
-  id: String!
-  phone: String
-  address: String!
-  city: String
-  country: String
-  cep: String
-}
-
 input SkilCreateInput {
   name: String
   site: String
@@ -147,23 +207,4 @@ input SkilUpdateInput {
   ext: String
   tipo: String
   level: String
-}
-
-input EducationCreateInput {
-  degree: String
-  subject: String
-  institution: String
-  site: String
-  begin: DateTime
-  end: DateTime
-}
-
-input EducationUpdateInput {
-  id: String!
-  degree: String
-  subject: String
-  institution: String
-  site: String
-  begin: DateTime
-  end: DateTime
 }
