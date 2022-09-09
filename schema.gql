@@ -1,0 +1,169 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Education {
+  id: String
+  degree: String
+  subject: String
+  institution: String
+  site: String
+  begin: DateTime
+  end: DateTime
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Information {
+  id: String
+  phone: String
+  address: String
+  city: String
+  country: String
+  cep: String
+}
+
+type Language {
+  id: String
+  item: Float
+  name: String
+  understanding: String
+  speaking: String
+  writing: String
+}
+
+type Level {
+  id: String
+  item: Float
+  value: String
+  label: String
+  description: String
+}
+
+type Skil {
+  id: String
+  name: String
+  site: String
+  ext: String
+  tipo: String
+  level: String
+}
+
+type Query {
+  getAllLanguages: [Language!]!
+  getLanguageById(id: String!): Language!
+  getAllLevels: [Level!]!
+  getLevelById(id: String!): Level!
+  getAllInformations: [Information!]!
+  getInformationById(id: String!): Information!
+  getAllSkils: [Skil!]!
+  getSkilById(id: String!): Skil!
+  getAllEducations: [Education!]!
+  getEducationById(id: String!): Education!
+}
+
+type Mutation {
+  createLanguage(input: LanguageCreateInput!): Language!
+  updateLanguage(input: LanguageUpdateInput!): Language!
+  deleteLanguage(id: String!): Boolean!
+  createLevel(input: LevelCreateInput!): Level!
+  updateLevel(input: LevelUpdateInput!): Level!
+  deleteLevel(id: String!): Boolean!
+  createInformation(input: InformationCreateInput!): Information!
+  updateInformation(input: InformationUpdateInput!): Information!
+  deleteInformation(id: String!): Boolean!
+  createSkil(input: SkilCreateInput!): Skil!
+  updateSkil(input: SkilUpdateInput!): Skil!
+  deleteSkil(id: String!): Boolean!
+  createEducation(input: EducationCreateInput!): Education!
+  updateEducation(input: EducationUpdateInput!): Education!
+  deleteEducation(id: String!): Boolean!
+}
+
+input LanguageCreateInput {
+  item: Float
+  name: String!
+  understanding: String
+  speaking: String
+  writing: String
+}
+
+input LanguageUpdateInput {
+  id: String!
+  item: Float!
+  name: String!
+  understanding: String!
+  speaking: String!
+  writing: String!
+}
+
+input LevelCreateInput {
+  item: Float
+  value: String!
+  label: String
+  description: String
+}
+
+input LevelUpdateInput {
+  id: String!
+  item: Float
+  value: String!
+  label: String
+  description: String
+}
+
+input InformationCreateInput {
+  phone: String
+  address: String!
+  city: String
+  country: String
+  cep: String
+}
+
+input InformationUpdateInput {
+  id: String!
+  phone: String
+  address: String!
+  city: String
+  country: String
+  cep: String
+}
+
+input SkilCreateInput {
+  name: String
+  site: String
+  ext: String
+  tipo: String
+  level: String
+}
+
+input SkilUpdateInput {
+  id: String!
+  name: String
+  site: String
+  ext: String
+  tipo: String
+  level: String
+}
+
+input EducationCreateInput {
+  degree: String
+  subject: String
+  institution: String
+  site: String
+  begin: DateTime
+  end: DateTime
+}
+
+input EducationUpdateInput {
+  id: String!
+  degree: String
+  subject: String
+  institution: String
+  site: String
+  begin: DateTime
+  end: DateTime
+}
