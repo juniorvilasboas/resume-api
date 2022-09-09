@@ -18,10 +18,6 @@ export class LevelService {
     return this.levelRepository.findOne(id)
   }
 
-  async findBySlug(slug: string): Promise<Level> {
-    return this.levelRepository.findOne({ where: [{ slug }] })
-  }
-
   async create(input: Level): Promise<Level> {
     return this.levelRepository.save(input)
   }

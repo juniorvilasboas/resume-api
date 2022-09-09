@@ -18,10 +18,6 @@ export class EducationService {
     return this.educationRepository.findOne(id)
   }
 
-  async findBySlug(slug: string): Promise<Education> {
-    return this.educationRepository.findOne({ where: [{ slug }] })
-  }
-
   async create(input: Education): Promise<Education> {
     return this.educationRepository.save(input)
   }

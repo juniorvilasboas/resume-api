@@ -18,10 +18,6 @@ export class SkilService {
     return this.skilRepository.findOne(id, { loadRelationIds: true })
   }
 
-  async findBySlug(slug: string): Promise<Skil> {
-    return this.skilRepository.findOne({ where: [{ slug }] })
-  }
-
   async create(input: Skil): Promise<Skil> {
     return this.skilRepository.save(input)
   }

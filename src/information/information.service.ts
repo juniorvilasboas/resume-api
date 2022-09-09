@@ -18,10 +18,6 @@ export class InformationService {
     return this.levelRepository.findOne(id)
   }
 
-  async findBySlug(slug: string): Promise<Information> {
-    return this.levelRepository.findOne({ where: [{ slug }] })
-  }
-
   async create(input: Information): Promise<Information> {
     return this.levelRepository.save(input)
   }
